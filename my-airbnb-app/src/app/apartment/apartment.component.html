@@ -1,0 +1,36 @@
+ <div class="card">
+
+    <img class="card-img-top" [src]="apartment.image" alt="Responsive image">
+  
+    <div class="card-body">
+  
+      <h4 class="card-title"><a>{{apartment.name | uppercase}}</a></h4>
+      <p class="card-text"> {{apartment.price}}</p>
+      <p>{{apartment.type | titlecase}}</p>
+  
+    </div>
+  
+  </div> 
+
+  <!-- <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{apartment.name | uppercase}}</mat-card-title>
+      <mat-card-subtitle>{{apartment.price}}$</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="apartment.image" alt="apartment">
+    <mat-card-content>
+      <p>
+        {{apartment.type | titlecase}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+   -->
+  
+  <!-- Copyright 2019 Google Inc. All Rights Reserved.
+      Use of this source code is governed by an MIT-style license that
+      can be found in the LICENSE file at http://angular.io/license -->
