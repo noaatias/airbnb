@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Apartment } from '../../models/apartment.model';
 import { ApartmentService } from './apartment.service';
 import {Type} from '../../models/type.model';
+import { TypeService } from './type.service';
 
 export interface IState {
     apartments: Apartment[];
@@ -25,7 +26,7 @@ export class StoreService {
     private readonly _store = new BehaviorSubject<IState>(initialState);
     constructor(
       private apartmentService: ApartmentService,
-      
+      private typeService: TypeService,
     ) { }
 
     get currentState(): IState {
@@ -44,14 +45,51 @@ export class StoreService {
             this.setState({
               apartments,
             });
-            console.log(apartments)
         })
     }
 
     get apartments(): Apartment[] {
-      console.log(this.currentState.apartments)
         return this.currentState.apartments;
     }
+    getApartmentById(id: string) {
+        this.apartmentService.getApartmentDetailsFromServer(id).subscribe(apartment => {
+            this.setState({
+                selectedApartment: apartment
+            });
+            console.log(this.currentState.selectedApartment)
+        });
+    }
+    get selectedApartment(): Apartment {
+        return this.currentState.selectedApartment;
+    }
+    addApartment(apartment: Apartment) {
+        return this.apartmentService.addApartmentToServer(apartment).subscribe(apartmentFromServer => {
+          // it's important to add the movieForm retrieved from the server cause it contains the server-generated id!
+          this.setState({
+            apartments: this.apartments.concat(apartmentFromServer),
+          });
+        });
+      }
+      get types(): Type[] {
+        return this.currentState.types;
+    }
 
+    get selectedType(): IState['selectedType'] {
+        return this.currentState.selectedType;
+    }
    
+    getTypes() {
+        this.typeService.getTypesFromServer().subscribe(types => {
+          this.setState({
+            types,
+          });
+          console.log(this.currentState.types)
+        });
+      }
+  
+      setSelectedType(typeName: string) {
+        this.setState({
+          selectedType: typeName,
+        });
+      }
 }

@@ -5,7 +5,8 @@ var logger = require('morgan');
 const cors = require('cors');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var apartmentssRouter = require('./routes/apartments');
+var apartmentsRouter = require('./routes/apartments');
+var typesRouter = require('./routes/types');
 
 const mongoose = require('mongoose');
 const URL = 'mongodb://localhost:27017/airbnb';
@@ -21,6 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/apartments', apartmentssRouter);
+app.use('/apartments', apartmentsRouter);
+app.use('/types', typesRouter);
 
 module.exports = app;

@@ -1,0 +1,28 @@
+<div class="wrapper" *ngIf="store.selectedApartment">
+        <mat-card class="apartment-detail">
+          <mat-card-header>
+            <mat-card-title>{{
+              store.selectedApartment.name | uppercase
+            }}</mat-card-title>
+            <mat-card-subtitle
+              >Price per night:
+              <strong>{{ store.selectedApartment.price }}$</strong></mat-card-subtitle
+            >
+          </mat-card-header>
+          <img
+            mat-card-image
+            [src]="store.selectedApartment.image"
+            [alt]="store.selectedApartment.name"
+          />
+          <mat-card-content>
+            <p>Type: {{ store.selectedApartment.type }}</p>
+            <p>Number of rooms: {{ store.selectedApartment.rooms }}</p>
+            <ul>
+              Amenities:
+              <li *ngFor="let amenity of store.selectedApartment.amenities">
+                {{ amenity }}
+              </li>
+            </ul>
+          </mat-card-content>
+        </mat-card>
+      </div>

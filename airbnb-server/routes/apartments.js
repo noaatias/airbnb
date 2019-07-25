@@ -8,26 +8,26 @@ router.get('/', async function (req, res, next) {
     res.send(apartments);
 });
 
-// router.get('/:id', async function (req, res, next) {
-//     const { id } = req.params;
-//     try {
-//         const movie = await Movie.findById(id).exec();
-//         res.send(movie);
-//     } catch (e) {
-//         res.status(404).send('not found');
-//     }
-// });
+router.get('/:id', async function (req, res, next) {
+    const { id } = req.params;
+    try {
+        const apartment = await Apartment.findById(id).exec();
+        res.send(apartment);
+    } catch (e) {
+        res.status(404).send('not found');
+    }
+});
 
 
-// router.post('/', async (req, res) => {
-//    const {name, year, actors, genre, image, video} = req.body;
-//    const movie = new Movie({name, year, actors, genre, image, video});
-//    try {
-//        const document = await movie.save();
-//        res.status(200).send(document);
-//    } catch (e) {
-//         res.status(400).send(e);
-//    }
-// });
+router.post('/', async (req, res) => {
+   const {name, price, type, rooms, image, amenities} = req.body;
+   const apartment = new Apartment({name, price, type, rooms, image, amenities});
+   try {
+       const document = await apartment.save();
+       res.status(200).send(document);
+   } catch (e) {
+        res.status(400).send(e);
+   }
+});
 
 module.exports = router;

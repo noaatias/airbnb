@@ -12,7 +12,13 @@ export class ApartmentService {
     getApartmentsFromServer(): Observable<Apartment[]> {
         return this.httpClient.get<Apartment[]>(`http://localhost:3000/apartments/`);
     }
+    getApartmentDetailsFromServer(id: string): Observable<Apartment> {
+        return this.httpClient.get<Apartment>(`http://localhost:3000/apartments/${id}`);
+    }
 
+    addApartmentToServer(apartment: Apartment): Observable<Apartment> {
+        return this.httpClient.post<Apartment>(`http://localhost:3000/apartments/`, apartment);
+    }
     // getMovieDetailsFromServer(id: string): Observable<Movie> {
     //     return this.httpClient.get<Movie>(`${API_URL}/movies/${id}`);
     // }

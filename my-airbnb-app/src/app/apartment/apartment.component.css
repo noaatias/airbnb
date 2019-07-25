@@ -1,13 +1,13 @@
-.card {
-    max-width: 400px;
-    border: 2px solid black;
-    width: 100%;
-    height: auto;
-  }
-  
-  .example-header-image {
-    background-size: cover;
-  }
-  .card-img-top{
-    width: inherit;
-  }
+.apartment {
+  max-width: 400px;
+  cursor: pointer;
+}
+
+.img-container {
+  width: 200px;
+  margin-right: 24px;
+}
+
+.img-container img {
+  max-width: 100%;
+}

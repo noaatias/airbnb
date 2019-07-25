@@ -1,0 +1,10 @@
+.apartment-detail{
+    max-width: 500px;
+}
+.wrapper{
+    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      
+}

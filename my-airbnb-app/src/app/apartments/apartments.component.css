@@ -1,0 +1,9 @@
+.apartments {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .apartment-wrapper {
+    margin-bottom: 64px;
+  }
