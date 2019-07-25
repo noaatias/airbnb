@@ -12,6 +12,7 @@ import { ApartmentDetailsComponent } from './apartment-details/apartment-details
 import { NewApartmentComponent } from './new-apartment/new-apartment.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
+import { TypeFilterComponent } from './type-filter/type-filter.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {MatButtonModule} from '@angular/material/button';
     ApartmentsComponent,
     ApartmentComponent,
     ApartmentDetailsComponent,
-    NewApartmentComponent
+    NewApartmentComponent,
+    TypeFilterComponent
   ],
   imports: [
     BrowserModule,

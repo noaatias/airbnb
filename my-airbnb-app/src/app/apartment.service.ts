@@ -19,6 +19,10 @@ export class ApartmentService {
     addApartmentToServer(apartment: Apartment): Observable<Apartment> {
         return this.httpClient.post<Apartment>(`http://localhost:3000/apartments/`, apartment);
     }
+    deleteApartmentFromServer(id: string): Observable<Apartment> {
+        console.log("delete from server")
+        return this.httpClient.delete<Apartment>(`http://localhost:3000/apartments/${id}`);
+    }
     // getMovieDetailsFromServer(id: string): Observable<Movie> {
     //     return this.httpClient.get<Movie>(`${API_URL}/movies/${id}`);
     // }

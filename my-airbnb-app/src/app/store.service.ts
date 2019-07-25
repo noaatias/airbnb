@@ -56,7 +56,6 @@ export class StoreService {
             this.setState({
                 selectedApartment: apartment
             });
-            console.log(this.currentState.selectedApartment)
         });
     }
     get selectedApartment(): Apartment {
@@ -69,6 +68,21 @@ export class StoreService {
             apartments: this.apartments.concat(apartmentFromServer),
           });
         });
+      }
+       deleteApartment(id: string) {
+          console.log("delete store")
+           this.apartmentService.deleteApartmentFromServer(id).subscribe(
+            apartment => console.log('apartment'),
+            error => console.log('Error: ', error),
+            () => console.log('finished')
+           );
+        //    this.apartmentService.getApartmentsFromServer().subscribe(apartments => {
+        //     this.setState({
+        //       apartments,
+        //     });
+        // })
+
+         
       }
       get types(): Type[] {
         return this.currentState.types;
@@ -83,7 +97,6 @@ export class StoreService {
           this.setState({
             types,
           });
-          console.log(this.currentState.types)
         });
       }
   
@@ -91,5 +104,13 @@ export class StoreService {
         this.setState({
           selectedType: typeName,
         });
+        console.log(this.currentState.selectedType)
+      }
+
+    get filteredApartments(): Apartment[] {
+        if (!this.selectedType) {
+          return this.apartments;
+        }
+        return this.currentState.apartments.filter(apartment => this.selectedType===apartment.type);
       }
 }

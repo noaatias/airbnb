@@ -29,5 +29,14 @@ router.post('/', async (req, res) => {
         res.status(400).send(e);
    }
 });
+router.delete('/:id', async function (req, res, next) {
+    const { id } = req.params;
+    try {
+        const apartment = await Apartment.deleteOne({"_id":id});
+        res.send(apartment)
+    } catch (e) {
+        res.status(404).send('not found');
+    }
+});
 
 module.exports = router;

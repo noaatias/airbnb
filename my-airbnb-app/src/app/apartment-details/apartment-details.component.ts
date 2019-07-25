@@ -16,6 +16,12 @@ export class ApartmentDetailsComponent implements OnInit {
         this.id = this.route.snapshot.paramMap.get('id');
         this.store.getApartmentById(this.id);
     }
+onDelete(id:string){
+    console.log('on delete')
+    this.store.deleteApartment(id);
+    this.store.getApartments();
 
+
+}
  
 }

@@ -1,5 +1,6 @@
 <div class="apartments">
-    <div *ngFor="let apartment of this.store.apartments" class="apartment-wrapper">
+    <app-type-filter></app-type-filter>
+    <div *ngFor="let apartment of this.store.filteredApartments" class="apartment-wrapper">
       <app-apartment [apartment]="apartment"></app-apartment>
     </div>
   </div>

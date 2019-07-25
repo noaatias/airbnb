@@ -8,13 +8,12 @@ import { StoreService } from '../store.service';
 })
 export class ApartmentsComponent implements OnInit {
 
-  constructor(public store: StoreService) { }
+  constructor(public store: StoreService) {
+
+   }
 
   ngOnInit() {
-    
-    
     this.store.getApartments();
-    console.log(this.store.apartments)
 }
 
 }
